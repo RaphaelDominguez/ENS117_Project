@@ -7,6 +7,7 @@ from dash import dcc
 from dash import html
 from dash.dependencies import Input, Output
 from pandas import Series, DataFrame
+
 #All final race data for each circuit formed into their respective dataframes 
 Losail_df = pd.read_csv('Losail_Hour_10.CSV',
                         usecols=['POSITION','NUMBER', 'TEAM', 'VEHICLE','CLASS','LAPS','TOTAL_TIME','GAP_FIRST','FL_TIME'],sep=';')
@@ -24,6 +25,7 @@ Fuji_df = pd.read_csv('Fuji_Hour_6.CSV',
                         usecols=['POSITION','NUMBER', 'TEAM', 'VEHICLE','CLASS','LAPS','TOTAL_TIME','GAP_FIRST','FL_TIME'],sep=';')
 Bahrain_df = pd.read_csv('Bahrain_Hour_8.CSV',
                         usecols=['POSITION','NUMBER', 'TEAM', 'VEHICLE','CLASS','LAPS','TOTAL_TIME','GAP_FIRST','FL_TIME'],sep=';')
+
 #organizing and sorting the dataframes by fasted lap time so that a total laps vs. fastest lap time scatter plot can be graphed
 dataframes_by_fl_time = {
     'Losail': Losail_df.sort_values(by='FL_TIME'),
